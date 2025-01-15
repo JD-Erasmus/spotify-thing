@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Songs That Remind Me Of You</title>
     <link rel="icon" type="image/png" sizes="32x32" href="Assets/favicon-32x32.png">
-   
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -23,29 +24,40 @@
             animation: float 3s ease-in-out infinite;
             opacity: 0.6;
             z-index: -1;
+            font-size: 2rem;
         }
 
         @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
         }
 
         h1 {
             font-family: 'Dancing Script', cursive;
             margin-top: 40px;
-            font-size: 3.5rem;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
             color: #d63384;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .love-note {
-            font-family: 'Dancing Script', cursive;
-            font-size: 1.5rem;
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
             color: #d63384;
-            margin: 20px 0;
+            margin: 20px auto;
             padding: 20px;
             text-align: center;
+            max-width: 800px;
+            line-height: 1.6;
+        }
+
+        .love-note blockquote {
+            padding: 1rem;
+            border-left: 4px solid #d63384;
+            margin: 1rem 0;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 8px;
         }
 
         .card {
@@ -56,6 +68,7 @@
             backdrop-filter: blur(5px);
             background-color: rgba(255, 255, 255, 0.9);
             height: 100%;
+            overflow: hidden;
         }
 
         .card:hover {
@@ -63,15 +76,8 @@
             box-shadow: 0 8px 25px rgba(214, 51, 132, 0.3);
         }
 
-        .song-description {
-            font-size: 0.9rem;
-            color: #666;
-            margin-top: 10px;
-            padding: 0 15px;
-        }
-
         .container {
-            padding-bottom: 60px;
+            padding-bottom: 80px;
         }
 
         footer {
@@ -83,34 +89,165 @@
             text-align: center;
             font-family: 'Dancing Script', cursive;
             color: #d63384;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #see-more-btn {
+            background-color: #d63384;
+            border: none;
+            padding: 10px 30px;
+            border-radius: 25px;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        #see-more-btn:hover {
+            background-color: #b52b6f;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .love-note {
+                padding: 15px;
+            }
+            
+            .heart {
+                font-size: 1.5rem;
+            }
+        }
+        .carousel-item img {
+            width: 600px; /* Fixed width */
+            height: 400px; /* Fixed height */
+            object-fit: contain; /* Ensures images fill the area while maintaining aspect ratio */
+            margin: 0 auto; /* Centers the image */
         }
     </style>
 </head>
 <body>
-    <!-- Add floating hearts -->
     <div class="heart" style="top: 10%; left: 5%;">❤️</div>
     <div class="heart" style="top: 30%; right: 10%;">💝</div>
     <div class="heart" style="top: 60%; left: 15%;">💖</div>
     <div class="heart" style="top: 80%; right: 5%;">💕</div>
-
+    
+    
     <div class="text-center">
+        
         <h1>Songs That Remind Me Of You</h1>
+        <div class="container p-5">
+            <div id="imageCarousel" class="carousel slide" data-bs-ride="carousel">
+                <!-- Indicators -->
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                    <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                    <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
+                    <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="6" aria-label="Slide 7"></button>
+                </div>
+        
+                <!-- Carousel Content -->
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="Assets/IMG-20241202-WA0005.jpg" class="d-block w-100" alt="Image 1">
+                        <div class="carousel-caption d-none d-md-block">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="Assets/IMG-20250106-WA0022.jpg" class="d-block w-100" alt="Image 2">
+                        <div class="carousel-caption d-none d-md-block">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="Assets/IMG-20250114-WA0011.jpg" class="d-block w-100" alt="Image 3">
+                        <div class="carousel-caption d-none d-md-block">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="Assets/IMG-20250114-WA0012.jpg" class="d-block w-100" alt="Image 3">
+                        <div class="carousel-caption d-none d-md-block">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="Assets/IMG-20250114-WA0013.jpg" class="d-block w-100" alt="Image 3">
+                        <div class="carousel-caption d-none d-md-block">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="Assets/IMG-20250114-WA0016.jpg" class="d-block w-100" alt="Image 3">
+                        <div class="carousel-caption d-none d-md-block">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="Assets/WhatsApp Image 2025-01-11 at 23.13.09_10f1a9ab.jpg" class="d-block w-100" alt="Image 3">
+                        <div class="carousel-caption d-none d-md-block">
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Controls -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#imageCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        
+        </div>
         <div class="love-note">
             <p>
-                I’m not one to use many words, and sometimes I find it difficult to express just how deeply I feel. But even though words may fall short, I hope these songs can say what I struggle to put into speech. Each track, each note, carries a part of what’s in my heart—an emotion, a thought, a feeling that’s too big for me to say aloud.
+                I created this for you because it brings together some of my greatest passions: music, making stuff, and most importantly, you. 
+                Every song on this list has made me pause and think of you. Some songs remind me of moments we've shared, and I want you to know just how much you mean to me.
             </p>
             <p>
-                These songs are my way of trying to show you just how much you mean to me. Each one comes close to capturing a piece of how I feel, even if words can’t fully express the depth of it. I may not always know how to say it, but when I listen to these songs, I’m reminded of you, and everything I feel comes rushing to the surface.
+                I may not always find the right words to express how deeply I feel, but when I listen to these songs, they bring everything rushing to the surface. 
+                Each track, each note, carries a piece of my heart, an emotion, a thought, a feeling that’s too big to say aloud.
             </p>
             <p>
-                I want to let you know that, even in my quietest moments, you are always there—beautiful, constant, and unforgettable.
+                Songs like <strong>"The Middle"</strong> will always be your song in my mind. And <strong>"Tiny Dancer"</strong>—I still remember the moment it played in Marua Mall; 
+                I had to make it extra special and point it out. The song is always a vibe with you. I enjoy it more when you're around.
             </p>
             <p>
-                With all my heart,
+                Then there’s <strong>"Lenie Blou"</strong>, which reminds me of LiefdeByDieNam,(I am so happy to share that moment with you) and <strong>"Dagdrome in Suburbia"</strong>, especially the part that goes 
+                <em>"Ek het jou gesien"</em>. I always sing that part extra loud because it makes me think of you. And of course, <strong>"Fok Vrou"</strong>—jy weet mos...
+            </p>
+            <div>
+                <blockquote>
+                    So Fok Vrou<br>
+                    As jy eendag als vergeet dan sal ek jou daagliks vertel<br>
+                    Van ons<br>
+                    Daar's tye in die hemel en daar's tye in die hel<br>
+                    Fok vrou<br>
+                    As jy eendag als vergeet dan sal ek jou daagliks vertel<br>
+                    Dat jy<br>
+                    Die beste mens is wie ek ken want jy's my beste pel
+                </blockquote>
+            </div>
+            <p>
+                And from Mac Miller’s <strong>"Surf"</strong>: 
+            </p>
+            <div>
+                <blockquote>
+                    Where are you goin'? Can I come too?<br>
+                    The whole world is open, a playground for me and you<br>
+                    And we could be fine, shit, who the hell knows?<br>
+                    It's your eyes and your ears and your mouth and your nose<br>
+                    Head and your shoulders, your knees and your toes
+                </blockquote>
+            </div>
+            <p>
+                Naatuurlik hoef ek "FLVJ" nie te verduidelik nie, want "Ek is Fokken Lief Vir Jou."
+            </p>
+            <p>
+                Happy birthday, my love. With all my heart, <br> ~ I love you.
             </p>
         </div>
-        
     </div>
+        
     <div class="container mt-4">
         <div class="row g-4" id="song-cards"></div>
         <div class="text-center mt-4">
@@ -120,21 +257,43 @@
     <footer>
         With all my love ❤️
     </footer>
-
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
     <script>
-        // List of songs
-        const songs = [
-            "https://open.spotify.com/embed/track/5JVJlHLq0mJdA35ENWyUb6?utm_source=generator",
-            "https://open.spotify.com/embed/track/0sKlV58cODrjxGFOyf9IXY?utm_source=generator",
-            "https://open.spotify.com/embed/track/2KpAQSI4e6vCqdTJtiIjO2?utm_source=generator",
-            "https://open.spotify.com/embed/track/5qEn8c0MBzyRKgQq91Vevi?utm_source=generator",
-            "https://open.spotify.com/embed/track/4yugZvBYaoREkJKtbG08Qr?utm_source=generator",
-            "https://open.spotify.com/embed/track/3R9CRcFbgafwppJ0Ht3aC1?utm_source=generator",
-            "https://open.spotify.com/embed/track/6NmXV4o6bmp704aPGyTVVG?utm_source=generator",
-            "https://open.spotify.com/embed/track/0Tt4GmMgXkWACIlgXL8Vt6?utm_source=generator",
-            "https://open.spotify.com/embed/track/7GhIk7Il098yCjg4BQjzvb?utm_source=generator",
-            "https://open.spotify.com/embed/track/1bDbXMyjaUIooNwFE9wn0N?utm_source=generator"
-        ];
+  
+  const songs = [
+    "https://open.spotify.com/embed/track/5JVJlHLq0mJdA35ENWyUb6?utm_source=generator",
+    "https://open.spotify.com/embed/track/0sKlV58cODrjxGFOyf9IXY?utm_source=generator",
+    "https://open.spotify.com/embed/track/5qEn8c0MBzyRKgQq91Vevi?utm_source=generator",
+    "https://open.spotify.com/embed/track/2KpAQSI4e6vCqdTJtiIjO2?utm_source=generator",
+    "https://open.spotify.com/embed/track/2GiJYvgVaD2HtM8GqD9EgQ?utm_source=generator",
+    "https://open.spotify.com/embed/track/0c6cp4dLjvTAuKe2cGi9Pw?utm_source=generator",
+    "https://open.spotify.com/embed/track/0dS2u2UFd88TIzDDaZDLvS?utm_source=generator",
+    "https://open.spotify.com/embed/track/6aoOsdstETztQMiH8ly95z?utm_source=generator",
+    "https://open.spotify.com/embed/track/2uXlHCUbq9OMUwx3hrk06o?utm_source=generator",
+    "https://open.spotify.com/embed/track/14AyWf6y7KlWWLfAjdKMKI?utm_source=generator",
+    "https://open.spotify.com/embed/track/3Xie5FG2ohkJMnohRKbu4E?utm_source=generator",
+    "https://open.spotify.com/embed/track/1170VohRSx6GwE6QDCHPPH?utm_source=generator",
+    "https://open.spotify.com/embed/track/7i2GzuBo7pCGTnP7IUv6YH?utm_source=generator",
+    "https://open.spotify.com/embed/track/36QKHHBw4MgMcfMOSjzgnG?utm_source=generator",
+    "https://open.spotify.com/embed/track/2QLqcIW2eLuN64rMyeULkE?utm_source=generator",
+    "https://open.spotify.com/embed/track/7cs7MLtAWvsdf3w5kBvfK2?utm_source=generator",
+    "https://open.spotify.com/embed/track/2TVxnKdb3tqe1nhQWwwZCO?utm_source=generator",
+    "https://open.spotify.com/embed/track/7D0RhFcb3CrfPuTJ0obrod?utm_source=generator",
+    "https://open.spotify.com/embed/track/6FBzhcfgGacfXF3AmtfEaX?utm_source=generator",
+    "https://open.spotify.com/embed/track/6GG73Jik4jUlQCkKg9JuGO?utm_source=generator",
+    "https://open.spotify.com/embed/track/0NkkbKSzQ50mAoSUbQpgLw?utm_source=generator",
+    "https://open.spotify.com/embed/track/1Roq03sTKb6TPKBY89YJ4v?utm_source=generator",
+    "https://open.spotify.com/embed/track/4riDfclV7kPDT9D58FpmHd?utm_source=generator",
+    "https://open.spotify.com/embed/track/4rJHH484bHZDts51o5i2CB?utm_source=generator",
+    "https://open.spotify.com/embed/track/10s1HbmFsDCKmMNcAbDLyV?utm_source=generator",
+    "https://open.spotify.com/embed/track/10Ql7yWoFEmRNp83JeS4Uk?utm_source=generator",
+    "https://open.spotify.com/embed/track/5OcxthvGOxWYsuwKrWk5U4?utm_source=generator",
+    "https://open.spotify.com/embed/track/3n69hLUdIsSa1WlRmjMZlW?utm_source=generator",
+    "https://open.spotify.com/embed/track/6LZehTYu9oYHG6c7p3tfrv?utm_source=generator",
+    "https://open.spotify.com/embed/track/3siwsiaEoU4Kuuc9WKMUy5?utm_source=generator",
+    "https://open.spotify.com/embed/track/3hRV0jL3vUpRrcy398teAU?utm_source=generator"
+];
 
         let currentPage = 0;
         const pageSize = 6;
@@ -150,7 +309,15 @@
                 col.innerHTML = `
                     <div class="card text-center d-flex flex-column">
                         <div class="card-body">
-                            <iframe style="border-radius:12px" src="${songs[i]}" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                            <iframe style="border-radius:12px" 
+                                src="${songs[i]}" 
+                                width="100%" 
+                                height="352" 
+                                frameBorder="0" 
+                                allowfullscreen="" 
+                                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                                loading="lazy">
+                            </iframe>
                         </div>
                     </div>`;
                 container.appendChild(col);
@@ -163,8 +330,6 @@
         }
 
         document.getElementById('see-more-btn').addEventListener('click', renderSongs);
-
-        // Load the initial set of songs
         renderSongs();
     </script>
 </body>
